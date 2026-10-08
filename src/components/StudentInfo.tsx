@@ -21,7 +21,7 @@ import {
 export function StudentInfo() {
   return (
     <Drawer swipeDirection="left">
-      <DrawerTrigger render={<Button variant="secondary">Supatchok Pimsan</Button>} />
+      <DrawerTrigger render={<Button className="bg-indigo-500 hover:bg-indigo-600">Supatchok Pimsan</Button>} />
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle className={"font-size-xl"}>ข้อมูลนักศึกษา</DrawerTitle>

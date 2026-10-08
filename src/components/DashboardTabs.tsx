@@ -14,8 +14,8 @@ export function DashboardTabs() {
     <div className="w-full">
     <Tabs defaultValue="overview" className="w-full">
       <TabsList>
-        <TabsTrigger value="overview"><Summary/>Overview</TabsTrigger>
-        <TabsTrigger value="category"><LayoutGrid/> By Category</TabsTrigger>
+        <TabsTrigger className="text-xl" value="overview"><Summary/>Overview</TabsTrigger>
+        <TabsTrigger className="text-xl" value="category"><LayoutGrid/> By Category</TabsTrigger>
       </TabsList>
       <TabsContent value="overview">
       <OverviewCards/>
