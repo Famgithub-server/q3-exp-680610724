@@ -9,12 +9,13 @@ interface ItemState {
     amount: number,
     category: Expense["category"],
   ) => void;
-  // deleteExpense: (id: string) => void;
+  deleteExpense: (id: string) => void;
+  getTotalValue: () => number;
 }
 
 export const useItemStore = create<ItemState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       // Default initial items used only if localStorage is completely empty
       expenses: [
         {
@@ -73,11 +74,20 @@ export const useItemStore = create<ItemState>()(
             ...state.expenses,
           ],
         })),
-      
+
+      deleteExpense: (id) => 
+        set((state) => ({
+          expenses: state.expenses.filter(e => e.id != id),
+          })),
+
+      getTotalValue: () => {
+        return get().expenses.reduce((acc, e) => acc + e.amount, 0);
+      }
+
     }),
     {
       // Unique key name for the localStorage entry
-      name: "app-storage",
+      name: "exp-680610724",
     },
   ),
 );
